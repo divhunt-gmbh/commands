@@ -3,7 +3,6 @@
 import commands from './addon.js';
 
 import './functions/find.js';
-import './functions/extract.js';
 import './item/functions/run.js';
 
 /* Items */

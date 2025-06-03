@@ -1,7 +1,7 @@
 // © 2025 Divhunt GmbH — Licensed under the Divhunt Framework License. See LICENSE for terms.
 
 import divhunt from '#framework/load.js';
-import commands from '../../addon.js';
+import commands from '../addon.js';
 
 commands.Item({
     id: 'commands:get:one',
