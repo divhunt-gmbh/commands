@@ -22,7 +22,7 @@ commands.Fn('find', function(method, pathname)
             return item;
         }
         
-        if (endpoint.includes(':')) 
+        if ((endpoint + '').includes(':')) 
         {
             const endpointParts = endpoint.split('/');
             const pathParts = normalizedPathname.split('/');
