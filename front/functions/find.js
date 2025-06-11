@@ -1,7 +1,5 @@
 // © 2025 Divhunt GmbH — Licensed under the Divhunt Framework License. See LICENSE for terms.
 
-import commands from '../addon.js';
-
 commands.Fn('find', function(method, pathname)
 {
     const normalizedPathname = pathname.toLowerCase();
@@ -49,6 +47,6 @@ commands.Fn('find', function(method, pathname)
             }
         }
     }
-
-    return items.find((item) => item.Get('endpoint') === '/*');
+    
+    return null;
 });
