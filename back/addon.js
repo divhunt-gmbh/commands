@@ -9,6 +9,7 @@ const commands = divhunt.Addon('commands', (addon) =>
     addon.Field('description', ['string']);
     addon.Field('in', ['object|string']);
     addon.Field('out', ['object|string']);
+    addon.Field('exposed', ['boolean', false]);
     addon.Field('callback', ['function']);
     
     addon.Field('method', ['string', 'GET'], null, (value) =>

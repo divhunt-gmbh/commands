@@ -5,6 +5,8 @@ import commands from '../../addon.js';
 
 commands.Fn('item.run', function(item, properties = {}, context = {})
 {
+    const startTime = performance.now();
+    
     return new Promise(async (resolve, reject) =>
     {
         if(!item.Get('in'))
@@ -35,7 +37,12 @@ commands.Fn('item.run', function(item, properties = {}, context = {})
                 data = {};
             }
 
-            resolve({data, message: message?.replace('{{command}}', item.Get('id')), code});
+            resolve({
+                data, 
+                message: message?.replace('{{command}}', item.Get('id')), 
+                code,
+                time: (performance.now() - startTime).toFixed(2)
+            });
         };
      
         try
@@ -48,7 +55,12 @@ commands.Fn('item.run', function(item, properties = {}, context = {})
                 }
                 catch(error)
                 {
-                    return resolve({data: error.message, message: 'Request contains invalid parameters.', code: 400});
+                    return resolve({
+                        data: error.message, 
+                        message: 'Request contains invalid parameters.', 
+                        code: 400,
+                        time: (performance.now() - startTime).toFixed(2)
+                    });
                 }
             }
 
