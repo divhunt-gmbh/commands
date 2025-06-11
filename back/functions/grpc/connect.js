@@ -1,10 +1,10 @@
 // © 2025 Divhunt GmbH — Licensed under the Divhunt Framework License. See LICENSE for terms.
 
-import commands from '#commands/load.js';
+import commands from '../../addon.js';
 
 commands.Fn('grpc.connect', async function(ip, port = 50000, prefix = '')
 {
-    const grpcClients = (await import('#servers/grpc/clients/load.js')).default;
+    const grpcClients = (await import('#servers/clients/load.js')).default;
     const connectedCommands = new Set();
     
     const client = grpcClients.Item({

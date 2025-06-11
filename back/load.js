@@ -5,6 +5,10 @@ import commands from './addon.js';
 import './functions/find.js';
 import './item/functions/run.js';
 
+/* gRPC */
+import './functions/grpc/expose.js';
+import './functions/grpc/connect.js';
+
 /* Items */
 // import './items/one.js';
 import './items/many.js';
