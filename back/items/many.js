@@ -5,6 +5,7 @@ import commands from '../addon.js';
 
 commands.Item({
     id: 'commands:get:many',
+    exposed: true,
     method: 'GET',
     endpoint: '/api/commands',
     type: 'JSON',
@@ -15,6 +16,7 @@ commands.Item({
                 type: 'object',
                 config: {
                     id: ['string'],
+                    exposed: ['boolean'],
                     meta: {
                         type: 'object',
                         config: {
@@ -46,8 +48,14 @@ commands.Item({
 
         Object.values(commands.Items()).forEach((item) => 
         {
+            if(!item.Get('exposed'))
+            {
+                return true;
+            }
+
             list.push({
                 id: item.Get('id'),
+                exposed: item.Get('exposed'),
                 meta: {
                     description: item.Get('description'),
                 },

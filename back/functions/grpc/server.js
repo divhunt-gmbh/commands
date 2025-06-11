@@ -33,6 +33,11 @@ commands.Fn('grpc.server', async function(port = 50000, debug = true)
                 return stream.respond(null, 'Command doesn\'t exist.', 404, payload.id);
             }
 
+            if(!command.Get('exposed'))
+            {
+                return stream.respond(null, 'Command is not exposed.', 403, payload.id);
+            }
+
             try 
             {
                 const result = await command.Fn('run', payload.data);

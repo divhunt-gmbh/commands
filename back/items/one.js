@@ -49,6 +49,11 @@ commands.Item({
             return resolve(null, 'Command does not exist.', 404);
         }
 
+        if(!command.Get('exposed'))
+        {
+            return resolve(null, 'Command is not exposed.', 403);
+        }
+
         resolve({
             command: {
                 id: command.Get('id'),
