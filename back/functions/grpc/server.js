@@ -2,7 +2,7 @@
 
 import commands from '../../addon.js';
 
-commands.Fn('grpc.expose', async function(port = 50000, debug = true)
+commands.Fn('grpc.server', async function(port = 50000, debug = true)
 {
     const grpcServers = (await import('#servers/grpc/load.js')).default;
     const server = grpcServers.Item({
